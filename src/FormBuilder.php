@@ -760,7 +760,8 @@ class FormBuilder
     protected function getSelectedValue($value, $selected)
     {
         if (is_array($selected)) {
-            return in_array($value, $selected, true) ? 'selected' : null;
+            // Strict = no. Moronic for testing selects, tbh
+            return in_array($value, $selected) ? 'selected' : null;
         } elseif ($selected instanceof Collection) {
             return $selected->contains($value) ? 'selected' : null;
         }
